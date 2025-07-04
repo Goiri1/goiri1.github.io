@@ -4,33 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mary Goiri</title>
-
-  <!-- Signature Font & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
 
-  <!-- 🌸 Floral Decoration -->
   <img src="https://i.imgur.com/sF6s2Ez.png" alt="floral" class="floral-decor" />
-
-  <!-- ✍🏽 Signature Name -->
   <h1 class="main-title">Mary Goiri</h1>
 
-  <!-- 🌟 Hero Section -->
   <div class="container" id="home">
     <h2>My Life, My Journey</h2>
     <p class="intro">
       Welcome to my world – where faith, purpose, and passion meet.<br>
       I’m Mary – real, resilient, and ready to make a difference.
     </p>
-
-    <!-- Navigation Buttons -->
     <div class="button-group">
       <a class="nav-button" href="#about">About</a>
       <a class="nav-button" href="#vision">Vision</a>
@@ -39,7 +27,6 @@
     </div>
   </div>
 
-  <!-- ✨ About Section -->
   <div class="section" id="about">
     <h2>About Me</h2>
     <p>
@@ -49,7 +36,6 @@
     </p>
   </div>
 
-  <!-- 🌠 Vision Section -->
   <div class="section alt-section" id="vision">
     <h2>My Vision</h2>
     <p>
@@ -59,66 +45,79 @@
     </p>
   </div>
 
-  <!-- 📝 Blog Section -->
   <div class="section" id="blog">
     <h2>My Blog</h2>
+    <div class="category-buttons">
+      <button onclick="filterPosts('all')">All</button>
+      <button onclick="filterPosts('healing')">🌿 Healing</button>
+      <button onclick="filterPosts('growth')">🌱 Growth</button>
+      <button onclick="filterPosts('faith')">🙏🏾 Faith</button>
+      <button onclick="filterPosts('real')">❤ Real Life</button>
+    </div>
 
-    <div class="blog-post">
+    <div class="blog-post healing real">
       <h3>🌿 Rising from the Mud</h3>
       <p>How pain turned into power, and the lessons I carry today.</p>
       <a class="nav-button" href="blog1.html">Read Full Post</a>
     </div>
-
-    <div class="blog-post">
-      <h3>💼 From Hustle to Hope</h3>
-      <p>My journey navigating purpose, business, and self-love.</p>
+    <div class="blog-post growth faith">
+      <h3>💫 Becoming the Woman I Needed</h3>
+      <p>How I started healing, growing, and showing up for myself.</p>
       <a class="nav-button" href="blog2.html">Read Full Post</a>
     </div>
-
-    <div class="blog-post">
-      <h3>🌍 Real Life: Between Battles & Breakthroughs</h3>
-      <p>When reality hit hard — and how I chose to stand, not sink.</p>
+    <div class="blog-post faith">
+      <h3>🙏🏾 When God Was Silent</h3>
+      <p>How I kept believing even when I heard nothing at all.</p>
       <a class="nav-button" href="blog3.html">Read Full Post</a>
+    </div>
+    <div class="blog-post real">
+      <h3>❤ Some Days, I Don’t Feel Strong</h3>
+      <p>Being real about the moments I break — and still choose to rise.</p>
+      <a class="nav-button" href="blog4.html">Read Full Post</a>
     </div>
   </div>
 
-  <!-- 💌 Contact Section -->
   <div class="section alt-section" id="contact">
     <h2>Let’s Connect</h2>
-    <p>I’d love to hear from you. Drop a message below 💌</p>
+    <p>Have something on your heart? I’d love to hear from you 💖</p>
 
-    <!-- ✅ Paste your Formspree link in action="" -->
-    <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <form action="https://formspree.io/f/mgebjppv" method="POST" class="contact-form">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="nav-button">Send Message</button>
     </form>
 
-    <p style="margin-top: 20px;">
-      <strong>Email:</strong> goirimary65@gmail.com<br>
-      <strong>Instagram:</strong>
-      <a href="https://instagram.com/maryGoiri" target="_blank">@maryGoiri</a>
-    </p>
+    <p class="small-note">Or email me directly: <a href="mailto:goirimary65@gmail.com">goirimary65@gmail.com</a></p>
   </div>
 
-  <!-- ✨ Sparkles -->
   <div class="sparkle-container">
-    <div class="sparkle"></div>
-    <div class="sparkle"></div>
-    <div class="sparkle"></div>
-    <div class="sparkle"></div>
-    <div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
   </div>
 
-  <!-- 🌸 Footer -->
+  <button onclick="scrollToTop()" id="backToTop" title="Back to Top">↑</button>
+
   <footer class="footer">
     <p>© <span id="year"></span> Mary Goiri · Made with faith and flair 💫</p>
   </footer>
 
-  <!-- Auto Year Script -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      const btn = document.getElementById("backToTop");
+      btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+    };
+
+    function filterPosts(category) {
+      document.querySelectorAll('.blog-post').forEach(post =>
+        post.style.display = (category === 'all' || post.classList.contains(category)) ? 'block' : 'none'
+      );
+    }
   </script>
 
 </body>
