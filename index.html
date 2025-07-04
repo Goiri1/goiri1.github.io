@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mary Goiri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body>
+
+  <img src="https://i.imgur.com/sF6s2Ez.png" alt="floral" class="floral-decor" />
+  <h1 class="main-title">Mary Goiri</h1>
+
+  <div class="container" id="home">
+    <h2>My Life, My Journey</h2>
+    <p class="intro">
+      Welcome to my world – where faith, purpose, and passion meet.<br>
+      I’m Mary – real, resilient, and ready to make a difference.
+    </p>
+    <div class="button-group">
+      <a class="nav-button" href="#about">About</a>
+      <a class="nav-button" href="#vision">Vision</a>
+      <a class="nav-button" href="#blog">Blog</a>
+      <a class="nav-button" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m Mary — born and raised in Manyatta, Nyandarua.<br>
+      Life has shaped me into someone strong, honest, and deeply passionate.  
+      I’ve overcome, I’ve learned, and I’m still rising.
+    </p>
+  </div>
+
+  <div class="section alt-section" id="vision">
+    <h2>My Vision</h2>
+    <p>
+      My vision is to rise and lift others with me.<br>
+      I want to create, inspire, and speak life — turning pain into power.  
+      This journey isn’t just mine — it’s for others too.
+    </p>
+  </div>
+
+  <div class="section" id="blog">
+    <h2>My Blog</h2>
+    <div class="category-buttons">
+      <button onclick="filterPosts('all')">All</button>
+      <button onclick="filterPosts('healing')">🌿 Healing</button>
+      <button onclick="filterPosts('growth')">🌱 Growth</button>
+      <button onclick="filterPosts('faith')">🙏🏾 Faith</button>
+      <button onclick="filterPosts('real')">❤ Real Life</button>
+    </div>
+
+    <div class="blog-post healing real">
+      <h3>🌿 Rising from the Mud</h3>
+      <p>How pain turned into power, and the lessons I carry today.</p>
+      <a class="nav-button" href="blog1.html">Read Full Post</a>
+    </div>
+    <div class="blog-post growth faith">
+      <h3>💫 Becoming the Woman I Needed</h3>
+      <p>How I started healing, growing, and showing up for myself.</p>
+      <a class="nav-button" href="blog2.html">Read Full Post</a>
+    </div>
+    <div class="blog-post faith">
+      <h3>🙏🏾 When God Was Silent</h3>
+      <p>How I kept believing even when I heard nothing at all.</p>
+      <a class="nav-button" href="blog3.html">Read Full Post</a>
+    </div>
+    <div class="blog-post real">
+      <h3>❤ Some Days, I Don’t Feel Strong</h3>
+      <p>Being real about the moments I break — and still choose to rise.</p>
+      <a class="nav-button" href="blog4.html">Read Full Post</a>
+    </div>
+  </div>
+
+  <div class="section alt-section" id="contact">
+    <h2>Let’s Connect</h2>
+    <p>Have something on your heart? I’d love to hear from you 💖</p>
+
+    <form action="https://formspree.io/f/mgebjppv" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="nav-button">Send Message</button>
+    </form>
+
+    <p class="small-note">Or email me directly: <a href="mailto:goirimary65@gmail.com">goirimary65@gmail.com</a></p>
+  </div>
+
+  <div class="sparkle-container">
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+  </div>
+
+  <button onclick="scrollToTop()" id="backToTop" title="Back to Top">↑</button>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Mary Goiri · Made with faith and flair 💫</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      const btn = document.getElementById("backToTop");
+      btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+    };
+
+    function filterPosts(category) {
+      document.querySelectorAll('.blog-post').forEach(post =>
+        post.style.display = (category === 'all' || post.classList.contains(category)) ? 'block' : 'none'
+      );
+    }
+  </script>
+
+</body>
+</html>
